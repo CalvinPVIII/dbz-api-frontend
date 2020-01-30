@@ -19,8 +19,11 @@
   <ul>
     <div class="forms-content">
     <%@character.fetch("forms").each do |form|%>
-
+<% if form != '' %>
     <li><%= form %></li>
+    <% else %>
+    <p class = 'blank-message'><%=@character.fetch("name")%> has no forms</p>
+  <% end %>
     <%end%>
   </ul>
 </div>
@@ -30,7 +33,11 @@
   <ul>
 
     <%@character.fetch("family").each do |family|%>
+    <% if family != '' %>
     <li><%= family %></li>
+    <% else %>
+      <p class = 'blank-message'><%=@character.fetch("name")%> has no family</p>
+      <% end%>
     <%end%>
   </ul>
 </div>
